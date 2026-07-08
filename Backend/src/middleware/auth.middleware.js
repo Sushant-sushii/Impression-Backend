@@ -7,7 +7,7 @@ async function authCreator(req,res,next){
     }
     try{
         decoded=jwt.verify(token,process.env.JWT_SECRET)
-        if(decoded.role!=="admin" && decoded.role!=="author")
+        if(decoded.role!=="author")
             {
             return res.status(403).json({message:"Access Denied"});
         }
